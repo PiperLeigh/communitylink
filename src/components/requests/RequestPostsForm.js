@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
-export const ItemPostForm = () => {
-    cont [requestPost, updateRequestPost] = useState({
-        //userId: ,
+export const RequestPostForm = () => {
+    const [requestPost, updateRequestPost] = useState({
         requestTopic: '',
         requestDescription: '',
         urgent: false
@@ -11,19 +10,29 @@ export const ItemPostForm = () => {
 
     const navigate = useNavigate()
 
+    const localCommunityLinkUser = localStorage.getItem("communitylink_user")
+    const communityLinkUserObject = JSON.parse(localCommunityLinkUser)
+
     const makeNewRequestPost = (event) => {
         event.preventDefault()
 
-        return fetch('http:localhost:8088/requestPosts', {
+        const requestPostToSendToAPI = {
+            userId: communityLinkUserObject.id, 
+            requestTopic: requestPost.requestTopic,
+            requestDescription: requestPost.requestDescription,
+            urgent: requestPost.urgent
+        }
+
+        return fetch('http://localhost:8088/requestPosts?_expand=user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(requestPost),
+            body: JSON.stringify(requestPostToSendToAPI),
         })
             .then((response) => response.json())
             .then(() => {
-                navigate('/requestPosts')
+                navigate('/be-a-neighbor')
             })
     }
     return (
@@ -64,17 +73,14 @@ export const ItemPostForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter Product Type Here"
-                        value={requestPost.requestDescription}
+                    <label htmlFor="name">Urgent?</label>
+                    <input type="checkbox"
+                        value={requestPost.urgent}
                         onChange={
                             (evt) => {
-                                const copy = { ...requestPost } //create copy of existing state
-                                copy.type = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
-                                updateProduct(copy) //update state  variable to the copy ^^
+                                const copy = { ...requestPost }
+                                copy.urgent = evt.target.checked //.checked because it's a checkbox
+                                updateRequestPost(copy) //update state  variable to the copy ^^
                             }
                         } />
                 </div>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
-export const RequestResponseForm = () => {
-    const [requestResponse, updateRequestResponse] = useState({
+export const ItemResponseForm = () => {
+    const [itemResponse, updateItemResponse] = useState({
         responseBody: ''
     })
 
@@ -11,25 +11,25 @@ export const RequestResponseForm = () => {
     const localCommunityLinkUser = localStorage.getItem("communitylink_user")
     const communityLinkUserObject = JSON.parse(localCommunityLinkUser)
 
-    const makeNewRequestResponse = (event) => {
+    const makeNewItemResponse = (event) => {
         event.preventDefault()
 
-        const requestResponseToSendToAPI = {
-            requestPostId: requestResponse.requestPostId,
-            userId: communityLinkUserObject.id,
-            responseBody: requestResponse.responseBody
+        const itemResponseToSendToAPI = {
+            itemPostId: itemResponse.itemPostId,
+            userId: communityLinkUserObject.id, 
+            responseBody: itemResponse.responseBody
         }
 
-        return fetch('http://localhost:8088/requestResponses?_expand=requestPost&_expand=user', {
+        return fetch('http://localhost:8088/itemResponses?_expand=itemPost&_expand=user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(requestResponseToSendToAPI),
+            body: JSON.stringify(itemResponseToSendToAPI),
         })
             .then((response) => response.json())
             .then(() => {
-                navigate('/be-a-neighbor')
+                navigate('/free-store')
             })
     }
     return (
@@ -40,20 +40,20 @@ export const RequestResponseForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Hey neighbor! I can help out!"
-                        value={requestResponse.responseBody}
+                        placeholder="Hey neighbor! I'm interested in that item ya got there'!"
+                        value={itemResponse.responseBody}
                         onChange={
                             (evt) => {
-                                const copy = { ...requestResponse } //create copy of existing state
+                                const copy = { ...itemResponse } //create copy of existing state
                                 copy.responseBody = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
-                                updateRequestResponse(copy) //update state  variable to the copy ^^
+                                updateItemResponse(copy) //update state  variable to the copy ^^
                             }
                         } />
                 </div>
             </fieldset>
-
+            
             <button
-                onClick={(clickEvent) => makeNewRequestResponse(clickEvent)}
+                onClick={(clickEvent) => makeNewItemResponse(clickEvent)}
                 className="btn btn-primary">
                 SEND!
             </button>

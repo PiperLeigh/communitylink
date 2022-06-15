@@ -21,7 +21,7 @@ export const NavBar = () => {
                         <Link className="navbar__link" to="" onClick={() => { 
                             localStorage.removeItem("communitylink_user")
                             navigate("/", {replace: true})
-                        }}>Logout</Link> 
+                        }}>logout</Link> 
                     </li>
                     : ""
             }
