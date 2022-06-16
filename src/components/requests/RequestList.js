@@ -6,36 +6,29 @@ export const RequestList = () => {
 
     const navigate = useNavigate()
 
-    useEffect(
-        () => {
-            fetch('http://localhost:8088/requestPosts?_expand=user')
-                .then(response => response.json())
-                .then((requestArray) => {
-                    setRequests(requestArray)
-                })
-        },
-        []
-    )
+    const fetchPosts = () => {
+        fetch('http://localhost:8088/requestPosts?_expand=user')
+            .then(response => response.json())
+            .then((requestArray) => {
+                setRequests(requestArray)
+            })
+    }
+
+    useEffect(fetchPosts, [])
 
     const localCommunityLinkUser = localStorage.getItem("communitylink_user")
     const CommunityLinkUserObject = JSON.parse(localCommunityLinkUser)
 
-    const myPost = () => {
-        if (requests.userId === CommunityLinkUserObject.id) {
-            return <button className="item__delete">DELETE</button>
-        } 
-        else {
-            return ""
+    const deleteButtonDisplay = (request) => {
+        if (request.userId === CommunityLinkUserObject.id) {
+            return <button onClick={() => deleteButtonFunction(request)} className="item__delete">DELETE</button>
         }
-    } 
-    
-    const closeTicket = () => {
-        const copy = {
-            userId: requests.userId, 
-            requestTopic: requests.requestTopic,
-            requestDescription: requests.requestDescription,
-            urgent: requests.urgent
-        }
+    }
+
+    const deleteButtonFunction = (request) => {
+        return fetch(`http://localhost:8088/requestPosts/${request.id}`, {
+            method: "DELETE"
+        }).then(fetchPosts)
     }
 
 
@@ -53,6 +46,7 @@ export const RequestList = () => {
                                 <div className='request_description'>{request.requestDescription}</div>
                                 <footer className='request_urgent'>{request.urgent ? "URGENT!" : ""}</footer>
                                 <button onClick={() => navigate("/requestResponse/create")}>RESPOND</button>
+                                {deleteButtonDisplay(request)}
                             </section>
                         </>
                     }
