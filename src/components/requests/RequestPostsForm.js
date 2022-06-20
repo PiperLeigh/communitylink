@@ -17,6 +17,7 @@ export const RequestPostForm = () => {
         event.preventDefault()
 
         const requestPostToSendToAPI = {
+            id: 0,
             userId: communityLinkUserObject.id, 
             requestTopic: requestPost.requestTopic,
             requestDescription: requestPost.requestDescription,
