@@ -10,7 +10,7 @@ export const RequestList = () => {
         fetch('http://localhost:8088/requestPosts?_expand=user')
             .then(response => response.json())
             .then((requestArray) => {
-                setRequests(requestArray)
+                setRequests(requestArray.filter(request => request.user.zip === CommunityLinkUserObject.zip))
             })
     }
 
@@ -21,7 +21,7 @@ export const RequestList = () => {
 
     const deleteButtonDisplay = (request) => {
         if (request.userId === CommunityLinkUserObject.id) {
-            return <button onClick={() => deleteButtonFunction(request)} className="item__delete">DELETE</button>
+            return <button onClick={() => deleteButtonFunction(request)} className="request__delete">DELETE</button>
         }
     }
 
@@ -36,19 +36,23 @@ export const RequestList = () => {
         <button onClick={() => navigate("/requestPost/create")}>PLEASE REACH OUT</button>
         <article className="requests">
             {
-                requests.map(
+                requests
+                // .filter(request => request.user.zip === CommunityLinkUserObject.zip)
+                .map(
                     (request) => {
-                        return <>
-                            <section className='request' key={request.id}>
-                                <header className='request_poster'>{request?.user?.fullName}</header>
-                                <div className='request_tag'>needs a hand...</div>
-                                <div className='request_topic'>{request.requestTopic}</div>
-                                <div className='request_description'>{request.requestDescription}</div>
-                                <footer className='request_urgent'>{request.urgent ? "URGENT!" : ""}</footer>
-                                <button onClick={() => navigate("/requestResponse/create")}>RESPOND</button>
-                                {deleteButtonDisplay(request)}
-                            </section>
-                        </>
+                        // if (request.user.zip === CommunityLinkUserObject.zip) {
+                            return <>
+                                <section className='request' key={request.id}>
+                                    <header className='request_poster'>{request?.user?.fullName}</header>
+                                    <div className='request_tag'>needs a hand...</div>
+                                    <div className='request_topic'>{request.requestTopic}</div>
+                                    <div className='request_description'>{request.requestDescription}</div>
+                                    <footer className='request_urgent'>{request.urgent ? "URGENT!" : ""}</footer>
+                                    <button onClick={() => navigate(`/requestResponse/create?requestPostId=${request.id}`)}>RESPOND</button>
+                                    {deleteButtonDisplay(request)}
+                                </section>
+                            </>
+                        // }
                     }
                 )
             }

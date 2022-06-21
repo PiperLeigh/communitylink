@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useState, useMemo } from 'react'
+import { useNavigate, useLocation } from "react-router-dom"
 
 export const ItemResponseForm = () => {
     const [itemResponse, updateItemResponse] = useState({
@@ -10,12 +10,19 @@ export const ItemResponseForm = () => {
 
     const localCommunityLinkUser = localStorage.getItem("communitylink_user")
     const communityLinkUserObject = JSON.parse(localCommunityLinkUser)
+    let query = useQuery();
+    
+    function useQuery() {
+        const { search } = useLocation();
+      
+        return useMemo(() => new URLSearchParams(search), [search]);
+      }
 
     const makeNewItemResponse = (event) => {
         event.preventDefault()
 
         const itemResponseToSendToAPI = {
-            itemPostId: itemResponse.itemPostId,
+            itemPostId: query.get("itemPostId"),
             userId: communityLinkUserObject.id, 
             responseBody: itemResponse.responseBody
         }

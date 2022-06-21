@@ -20,7 +20,8 @@ export const Login = () => {
                     //In local storage set item of honey_user
                     localStorage.setItem("communitylink_user", JSON.stringify({
                         //with two properties of id and staff
-                        id: user.id
+                        id: user.id,
+                        zip: user.zip
                     }))
 
                     navigate("/")
@@ -59,4 +60,3 @@ export const Login = () => {
         </main>
     )
 }
-

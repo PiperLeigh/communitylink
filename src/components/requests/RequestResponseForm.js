@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useState, useMemo } from 'react'
+import { useNavigate, useLocation } from "react-router-dom"
 
 export const RequestResponseForm = () => {
     const [requestResponse, updateRequestResponse] = useState({
@@ -10,12 +10,21 @@ export const RequestResponseForm = () => {
 
     const localCommunityLinkUser = localStorage.getItem("communitylink_user")
     const communityLinkUserObject = JSON.parse(localCommunityLinkUser)
+    let query = useQuery();
+    
+    function useQuery() {
+        const { search } = useLocation();
+      
+        return useMemo(() => new URLSearchParams(search), [search]);
+      }
 
     const makeNewRequestResponse = (event) => {
+        debugger
         event.preventDefault()
+        
 
         const requestResponseToSendToAPI = {
-            requestPostId: requestResponse.requestPostId,
+            requestPostId: query.get("requestPostId"),
             userId: communityLinkUserObject.id,
             responseBody: requestResponse.responseBody
         }
@@ -45,6 +54,7 @@ export const RequestResponseForm = () => {
                         onChange={
                             (evt) => {
                                 const copy = { ...requestResponse } //create copy of existing state
+                                // copy.requestPostId =
                                 copy.responseBody = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
                                 updateRequestResponse(copy) //update state  variable to the copy ^^
                             }
