@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import "./RequestPostsForm.css"
 
 export const RequestPostForm = () => {
     const [requestPost, updateRequestPost] = useState({
@@ -18,7 +19,7 @@ export const RequestPostForm = () => {
 
         const requestPostToSendToAPI = {
             id: 0,
-            userId: communityLinkUserObject.id, 
+            userId: communityLinkUserObject.id,
             requestTopic: requestPost.requestTopic,
             requestDescription: requestPost.requestDescription,
             urgent: requestPost.urgent
@@ -37,45 +38,45 @@ export const RequestPostForm = () => {
             })
     }
     return (
-        <form>
-            <fieldset>
-                <div className="form-group">
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Brief headline of request"
-                        value={requestPost.requestTopic}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...requestPost } //create copy of existing state
-                                copy.requestTopic = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
-                                updateRequestPost(copy) //update state  variable to the copy ^^
-                            }
-                        } />
-                </div>
+        <main className='requestPostForm__pageContainer'>
+        <form className="requestPost__form">
+
+            <fieldset className="requestPost__headlineField">
+                <input
+                    required autoFocus
+                    type="text"
+                    className="requestHeadline"
+                    placeholder="What do you need help with?"
+                    value={requestPost.requestTopic}
+                    onChange={
+                        (evt) => {
+                            const copy = { ...requestPost } //create copy of existing state
+                            copy.requestTopic = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
+                            updateRequestPost(copy) //update state  variable to the copy ^^
+                        }
+                    } />
             </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Please give us more details about how we can help"
-                        value={requestPost.requestDescription}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...requestPost } //create copy of existing state
-                                copy.requestDescription = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
-                                updateRequestPost(copy) //update state  variable to the copy ^^
-                            }
-                        } />
-                </div>
+
+            <fieldset className="requestDetails__container">
+                <input
+                    required autoFocus
+                    type="text"
+                    className="requestDetails"
+                    placeholder="Say more about how your neighbors can help?"
+                    value={requestPost.requestDescription}
+                    onChange={
+                        (evt) => {
+                            const copy = { ...requestPost } //create copy of existing state
+                            copy.requestDescription = evt.target.value //set the description property's value on the target to whatever is currently in input field/the value of the event target
+                            updateRequestPost(copy) //update state  variable to the copy ^^
+                        }
+                    } />
             </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Urgent?</label>
-                    <input type="checkbox"
+
+            <fieldset className="requestUrgentPost">
+                <span className='requestUrgent__container'>
+                    <input type="radio"
+                    className='requestUrgentRadio'
                         value={requestPost.urgent}
                         onChange={
                             (evt) => {
@@ -83,14 +84,19 @@ export const RequestPostForm = () => {
                                 copy.urgent = evt.target.checked //.checked because it's a checkbox
                                 updateRequestPost(copy) //update state  variable to the copy ^^
                             }
-                        } />
-                </div>
+                        } /> <label className="requestUrgentLabel" htmlFor="name">Urgent?</label>
+                </span>
+                <span className="requestPostButton__container">
+                    <button
+                        onClick={(clickEvent) => makeNewRequestPost(clickEvent)}
+                        className="requestPostButton">
+                        Post!
+                    </button>
+                </span>
+
             </fieldset>
-            <button
-                onClick={(clickEvent) => makeNewRequestPost(clickEvent)}
-                className="btn btn-primary">
-                Post!
-            </button>
+
         </form>
+        </main>
     )
 }

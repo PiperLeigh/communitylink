@@ -1,0 +1,138 @@
+
+.userPage_container {
+    background: url("/public/images/userpage.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 110%;
+    display: flex;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.userPage {
+    display: flex;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 1300px;
+    margin-left: 500px;
+}
+
+.welcome {
+    font-family: 'rosebud';
+    color: #D0CC5D;
+    position:absolute;
+    top:43%;
+    left: -4%;
+    transform:rotate(-90deg);
+    letter-spacing: 3px;
+    font-size: 80px;
+}
+
+.para_welcome {
+    margin-bottom: 15px;
+}
+
+.itemResponse {
+    width: 400px;
+    margin: 15px;
+}
+
+.itemResponse_poster {
+    font-family: 'rosebud';
+    background-color: #4F95EB;
+    color: #F3F2E8;
+    letter-spacing: 3px;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.requestResponse {
+    width: 400px;
+    margin: 15px;
+}
+
+.requestResponse__poster {
+    font-family: 'rosebud';
+    color: #D0CC5D;
+    letter-spacing: 3px;
+    padding: 10px;
+    border: 1px solid #D0CC5D;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #F3F2E8;
+}
+
+.itemResponse_tag {
+    font-family: 'source code';
+    padding: 10px;
+    color: #4F95EB;
+    border: 1px solid #4F95EB;
+    background-color: #F3F2E8;
+}
+
+.itemResponse_body {
+    font-family: 'source code';
+    color: #4F95EB;
+    padding: 15px;
+    border-left: 1px solid #4F95EB;
+    border-right: 1px solid #4F95EB;
+    background-color: #F3F2E8;
+}
+.itemResponse_delete {
+    background-color: #4F95EB;
+    border: 2px solid #F3F2E8;
+    color: #F3F2E8;
+    border-radius: 50px;
+    margin-right: -10px;
+    margin-top: -12px;
+    float: right;
+}
+
+.requestResponse__delete {
+    margin-right: -10px;
+    margin-top: -12px;
+    float: right;
+    background-color: #D0CC5D;
+    border-radius: 50px;
+    border: 2px solid #F3F2E8;
+    color: #F3F2E8;
+}
+
+.requestResponse__tag {
+background-color: #D0CC5D;
+font-family: 'source code';
+color: #F3F2E8;
+padding: 6px;
+letter-spacing: 3px;
+}
+ 
+.itemResponse_respond {
+    font-family: 'source code';
+    color: #F3F2E8;
+    font-size: 20px;
+    background-color: #4F95EB;
+    border: 2px solid #4F95EB;
+    border-radius: 0px 0px 5px 5px;
+    width: 400px;
+}
+
+.requestResponse__body {
+    font-family: 'source code';
+    color: #D0CC5D;
+    padding: 15px;
+    border-left: 1px solid #D0CC5D;
+    border-right: 1px solid #D0CC5D;
+    background-color: #F3F2E8;
+}
+
+.requestResponse__respond {
+    font-family: 'source code';
+    color: #F3F2E8;
+    font-size: 20px;
+    background-color: #D0CC5D;
+    border: 2px solid #D0CC5D;
+    border-radius: 0px 0px 5px 5px;
+    width: 400px;
+}

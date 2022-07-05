@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import "./ItemPostForm.css"
 
 export const ItemPostForm = () => {
 
@@ -24,6 +25,7 @@ export const ItemPostForm = () => {
             <label for="dropdown__itemType"></label>
             <select 
             value={itemPost.itemTypeId}
+            className="dropdown__box"
             onChange={
                 (event)=>{
                     const copy= {...itemPost}
@@ -31,7 +33,7 @@ export const ItemPostForm = () => {
                     updateItemPost(copy)
                 }
             }>
-                <option value="0">Are you giving, borrowing, or offering on trade?</option>
+                <option value="0">Giving, borrowing, or offering on trade?</option>
                 {itemTypes.map((itemType) => {
                     return <option
                         key={itemType.id} value={itemType.id}>
@@ -65,18 +67,22 @@ export const ItemPostForm = () => {
             })
     }
     return (
-        <form>
-            <fieldset>
-                <div className="itemType-dropdown">
+        <main className='itemPostForm__container'>
+
+        <form className='itemPostForm'>
+
+            <fieldset className='dropdown__field'>
+                <div className="itemType__dropdown">
                 {dropDown()}
                 </div>
             </fieldset>
-            <fieldset>
-                <div className="form-group">
+
+            <fieldset className="itemName__field">
+                <div className="itemName__container">
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="itemName"
                         placeholder="Whatcha got?"
                         value={itemPost.itemName}
                         onChange={
@@ -88,12 +94,13 @@ export const ItemPostForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
-                <div className="form-group">
+
+            <fieldset className="itemDetail__field">
+                <div className="itemDetail__container">
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="itemDetail"
                         placeholder="Say more!"
                         value={itemPost.itemDescription}
                         onChange={
@@ -104,13 +111,14 @@ export const ItemPostForm = () => {
                             }
                         } />
                 </div>
-            </fieldset>
-
-            <button
+                <button
                 onClick={(clickEvent) => makeNewItemPost(clickEvent)}
-                className="btn btn-primary">
+                className="itemPostButton">
                 Post!
             </button>
+            </fieldset>
+
         </form>
+        </main>
     )
 }

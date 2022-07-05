@@ -1,0 +1,116 @@
+.requestList__container {
+    background: url("/public/images/RequestList.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 105%;
+    display: flex;
+    flex-direction: column;
+}
+
+.requests__container {
+    border: 2px solid #D0CC5D;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left:  240px;
+    width: 800px;
+}
+
+.request {
+    font-family: 'source code';
+    color: #D0CC5D;
+    display: flex;
+    flex-direction: column;
+}
+
+.requests {
+    font-family: 'source code';
+    /* width: 500px; */
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-top: 40px;
+}
+
+
+.request__posterTag {
+    font-family: 'source code';
+    background-color: #D0CC5D;
+    color: #F3F2E8;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 10px;
+    padding: 12px 0 9px 9px;
+}
+
+.request__poster {
+    font-size: 20px;
+    font-family: 'rosebud';
+    letter-spacing: 3px;
+}
+
+.request__tag {
+    font-style: italic;
+    font-size: 15px;
+}
+
+.request__topic {
+    font-size: 20px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #D0CC5D;
+    padding: 3px 0 9px 9px;
+    color: #D0CC5D;
+}
+
+.request__description {
+    margin-bottom: 8px;
+    padding: 3px 9px 4px 9px;
+}
+
+.request__urgent {
+    padding: 3px 0 9px 9px;
+    color: #4F95EB;
+}
+
+.reachOut_button {
+    font-family: 'source code';
+    background-color: #D0CC5D;
+    border: 2px solid #D0CC5D;
+    border-radius: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #F3F2E8;
+    font-weight: bold;
+    padding:5px 10px;
+    margin-top: 730px;
+    margin-right: 120px;
+    position: fixed;
+}
+
+.requestRespond__button {
+    font-family: 'source code';
+    color: #F3F2E8;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    background-color: #D0CC5D;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.request__delete {
+    background-color: #D0CC5D;
+    border: 2px solid #F3F2E8;
+    color: #F3F2E8;
+    border-radius: 50px;
+}
+
+.delete__button {
+    margin-right: -10px;
+    margin-top: -13px;
+    float: right;
+}
+
+.button__div {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+}

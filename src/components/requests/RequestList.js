@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./RequestList.css"
 
 export const RequestList = () => {
     const [requests, setRequests] = useState([])
@@ -21,7 +22,7 @@ export const RequestList = () => {
 
     const deleteButtonDisplay = (request) => {
         if (request.userId === CommunityLinkUserObject.id) {
-            return <button onClick={() => deleteButtonFunction(request)} className="request__delete">DELETE</button>
+            return <button onClick={() => deleteButtonFunction(request)} className="request__delete">x</button>
         }
     }
 
@@ -33,30 +34,40 @@ export const RequestList = () => {
 
 
     return <>
-        <button onClick={() => navigate("/requestPost/create")}>PLEASE REACH OUT</button>
-        <article className="requests">
-            {
-                requests
-                // .filter(request => request.user.zip === CommunityLinkUserObject.zip)
-                .map(
-                    (request) => {
-                        // if (request.user.zip === CommunityLinkUserObject.zip) {
-                            return <>
-                                <section className='request' key={request.id}>
-                                    <header className='request_poster'>{request?.user?.fullName}</header>
-                                    <div className='request_tag'>needs a hand...</div>
-                                    <div className='request_topic'>{request.requestTopic}</div>
-                                    <div className='request_description'>{request.requestDescription}</div>
-                                    <footer className='request_urgent'>{request.urgent ? "URGENT!" : ""}</footer>
-                                    <button onClick={() => navigate(`/requestResponse/create?requestPostId=${request.id}`)}>RESPOND</button>
-                                    {deleteButtonDisplay(request)}
-                                </section>
-                            </>
-                        // }
-                    }
-                )
-            }
-        </article>
-        <div></div>
+        <main className="requestList__container">
+        <div className="button__div">
+                <button className='reachOut_button' onClick={() => navigate("/requestPost/create")}>PLEASE REACH OUT</button>
+            </div>
+            <article className="requests">
+                {
+                    requests
+                        // .filter(request => request.user.zip === CommunityLinkUserObject.zip)
+                        .map(
+                            (request) => {
+                                // if (request.user.zip === CommunityLinkUserObject.zip) {
+                                return <>
+                                    <section className='requests__container'>
+                                        <section className='request' key={request.id}>
+                                            <div className='request__posterTag'>
+                                                <div>
+                                                    <span className="request__poster">{request.user.fullName}</span>
+                                                    <span className="delete__button">{deleteButtonDisplay(request)}</span>
+                                                </div>
+                                                <div className='request__tag'>needs a hand...</div>
+                                            </div>
+                                            <div>
+                                                <div className='request__topic'>{request.requestTopic}</div>
+                                                <div className='request__description'>{request.requestDescription}</div>
+                                                <div className='request__urgent'>{request.urgent ? "URGENT!" : ""}</div>
+                                            </div>
+                                            <button className='requestRespond__button' onClick={() => navigate(`/requestResponse/create?requestPostId=${request.id}`)}>RESPOND</button>
+                                        </section>
+                                    </section>
+                                </>
+                            }
+                        )
+                }
+            </article>
+        </main>
     </>
 }

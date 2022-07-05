@@ -33,29 +33,33 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <main className="login__container">
+            <h1 className="login__logo">COMMUNITYLINK</h1>
+
             <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>COMMUNITYLINK</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                <form className="login__form" onSubmit={handleLogin}>
+                    <fieldset className="login__emailField">
                         <input type="email"
                             value={email}
                             onChange={evt => set(evt.target.value)}
-                            className="form-control"
+                            className="login__email"
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
+
+
+                    <fieldset className="loginForm__buttons">
+                        <button type="submit" className="login__submit">
+                            <span>LOG IN</span>
                         </button>
+
+                        <span className="login__registerContainer">
+                            <Link className="login__register" to="/register" >REGISTER</Link>
+                        </span>
                     </fieldset>
+
                 </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+
             </section>
         </main>
     )

@@ -4,6 +4,7 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { ApplicationViews } from "./views/ApplicationViews"
+import "./CommunityLink.css"
 
 
 

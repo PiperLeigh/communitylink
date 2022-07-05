@@ -54,33 +54,31 @@ export const Register = (props) => {
     }
 
     return (
-        <main>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for COMMUNITYLINK</h1>
-                <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
+        <main className="register__container">
+            <h1 className="register__logo">COMMUNITYLINK</h1>
+            <form className="register__form" onSubmit={handleRegister}>
+                <fieldset className="field">
                     <input onChange={updateUser}
-                        type="text" id="fullName" className="form-control"
-                        placeholder="Hello, what is your name?" required autoFocus />
+                        type="text" id="fullName" className="register__name"
+                        placeholder="Hello, what's your name?" required autoFocus />
                 </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email address </label>
+                <fieldset className="field">
                     <input onChange={updateUser}
-                        type="email" id="email" className="form-control"
+                        type="email" id="email" className="register__email"
                         placeholder="What is your email?" required />
                 </fieldset>
-                <fieldset>
-                    <label htmlFor="zip"> Zip Code </label>
+                <fieldset className="field">
                     <input onChange={updateUser}
-                        type="text" pattern="[0-9]{5}" id="zip" className="form-control"
+                        type="text" pattern="[0-9]{5}" id="zip" className="register__zip"
                         placeholder="What is your zip code?" required />
                 </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
+
+                <fieldset className="field registerButtons">
+                    <button type="submit" className="register__submit">
+                        <span>REGISTER</span>
+                    </button>
+                    <span className="register__loginContainer"><Link to="/login" className="register__login">LOG IN</Link></span>
                 </fieldset>
-                <section className="link--register">
-                    <Link to="/login">Already a member?</Link>
-                </section>
             </form>
         </main>
     )

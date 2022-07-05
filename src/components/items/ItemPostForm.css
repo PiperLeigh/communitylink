@@ -1,0 +1,74 @@
+::placeholder {
+    color: #D0CC5D;
+}
+
+.itemPostForm__container {
+    background: url("/public/images/ItemPostForm.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95%;
+}
+
+.itemPostForm {
+    margin-left: 150px;
+}
+
+.itemName {
+    border: 2px solid #4B93EE;
+    border-radius: 25px;
+    width: 600px;
+    height: 28px;
+    text-align: center;
+    background-color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    height: 50px;
+    color:#D0CC5D
+}
+
+.itemDetail {
+    border: 2px solid #4B93EE;
+    border-radius: 25px;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    background-color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    color:#D0CC5D
+}
+
+.itemPostButton {
+    background-color: #4B93EE;
+    color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #4B93EE;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 20px;
+    width: 350px;
+    margin-left: 133px;
+    margin-top: 40px;
+}
+
+.dropdown__box {
+    background-color: #F2F1E7;
+    color: #D0CC5D;
+    border: 2px solid #4B93EE;
+    border-radius: 25px;
+    width: 600px;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'source code';
+    text-align: center;
+    font-weight: bold;
+    margin-top: 60px;
+    height: 50px;
+}

@@ -1,0 +1,102 @@
+.items {
+    background: url("/public/images/ItemList.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.give__button {
+    border: 3px solid #D0CC5D;
+    border-radius: 20px;
+    border-radius: 5px;
+    background-color: #F3F2E8;
+    color:#D0CC5D;
+    font-family: 'source code';
+    width: 100px;
+    height: 70px;
+    font-size: 25px;
+    position: fixed;
+    margin-top: 280px;
+    margin-left: 250px;
+}
+
+.item {
+    border: 2px solid #4F95EB;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    background-color: #F3F2E8;
+    margin-left: 700px;
+}
+
+.posterDelete__container {
+    padding: 10px 0px 5px 10px;
+}
+
+.item__poster {
+    font-size: 20px;
+    font-family: 'rosebud';
+    letter-spacing: 2px;
+    color:#4F95EB;
+    letter-spacing: 3px;
+}
+
+.item__delete {
+    background-color: #4F95EB;
+    border: none;
+    color: #F3F2E8;
+    border-radius: 50px;
+    margin-right: -10px;
+    margin-top: -16px;
+    float: right;
+}
+
+.item__tag {
+    padding: 0px 0px 5px 10px;
+    font-family: 'source code';
+    color:#D0CC5D;
+}
+
+.nameType__container {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'source code';
+    text-align: center;
+}
+
+.item__name {
+    background-color: #4F95EB;
+    width: 50%;
+    color:#F3F2E8;
+    padding: 5px;
+}
+
+.item__type {
+    border-top: 2px solid #4F95EB;
+    border-bottom: 2px solid #4F95EB;
+    width: 50%;
+    padding: 5px;
+    color:#4F95EB;
+}
+
+.item__description {
+    padding: 10px 0px 15px 10px;
+    font-family: 'source code';
+    color:#4F95EB;
+    
+}
+
+.itemRespond__Button {
+    font-family: 'source code';
+    color: #F3F2E8;
+    font-size: 20px;
+    background-color: #4F95EB;
+    border: 2px solid #4F95EB;
+    border-radius: 0px 0px 5px 5px;
+}
+

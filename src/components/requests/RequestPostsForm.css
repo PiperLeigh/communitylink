@@ -1,0 +1,71 @@
+.requestPostForm__pageContainer {
+    background: url("/public/images/RequestPost-01.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95%;
+}
+
+.requestPost__form {
+    margin-left: 1000px;
+}
+
+.requestHeadline {
+    border: 2px solid #D0CC5D;
+    border-radius: 25px;
+    width: 600px;
+    height: 28px;
+    text-align: center;
+    background-color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px;
+    margin-top: 100px;
+    color: #D0CC5D;
+}
+
+.requestDetails{
+    border: 2px solid #D0CC5D;
+    border-radius: 25px;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    background-color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px;
+    color: #D0CC5D;
+}
+
+.requestUrgentPost {
+display: flex;
+justify-content: space-between;
+width: 600px;
+margin-left: 15px;
+margin-top: 15px;
+}
+
+
+
+.requestUrgentLabel {
+    font-family: 'source code';
+    color: #4B93EE;
+    font-size: larger;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.requestPostButton {
+background-color: #D0CC5D;
+color: #F2F1E7;
+font-family: 'source code';
+font-weight: bold;
+text-align: center;
+border: 1px solid #D0CC5D;
+border-radius: 5px;
+margin-right: 20px;
+padding: 1px 6px;
+font-size: 20px;
+}

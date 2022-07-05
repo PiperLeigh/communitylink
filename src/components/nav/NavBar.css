@@ -1,0 +1,45 @@
+.navbar__logo {
+    color: #4F95EB;
+    font-size: 30px;
+}
+.navbar_itemsContainer {
+    display: flex;
+    padding: 25px 18px;
+    font-family: 'rosebud';
+    position:relative;
+    background-color: #F3F2E8;
+}
+
+
+.navbar_items {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
+.navbar__link {
+    margin-left: 60px;
+    color:#D0CC5D;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #4F95EB;
+  }
+
+@font-face {
+    font-family: 'rosebud';
+    src: url('/public/fonts/tan-rosebud-webfont.woff2') format('woff2'),
+        url('/public/fonts/tan-rosebud-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

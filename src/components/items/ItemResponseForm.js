@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useNavigate, useLocation } from "react-router-dom"
+import "./ItemResponseForm.css"
 
 export const ItemResponseForm = () => {
     const [itemResponse, updateItemResponse] = useState({
@@ -40,14 +41,15 @@ export const ItemResponseForm = () => {
             })
     }
     return (
-        <form>
+        <main className='itemResponseForm__container'>
+        <form className='itemResponseForm'>
             <fieldset>
-                <div className="form-group">
+                <div>
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
-                        placeholder="Hey neighbor! I'm interested in that item ya got there'!"
+                        className="itemResponseBody"
+                        placeholder="Hey neighbor! Thanks for sharing!"
                         value={itemResponse.responseBody}
                         onChange={
                             (evt) => {
@@ -61,9 +63,10 @@ export const ItemResponseForm = () => {
             
             <button
                 onClick={(clickEvent) => makeNewItemResponse(clickEvent)}
-                className="btn btn-primary">
+                className="itemResponseButton">
                 SEND!
             </button>
         </form>
+        </main>
     )
 }

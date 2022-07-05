@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useNavigate, useLocation } from "react-router-dom"
+import "./RequestResponseForm.css"
 
 export const RequestResponseForm = () => {
     const [requestResponse, updateRequestResponse] = useState({
@@ -19,7 +20,6 @@ export const RequestResponseForm = () => {
       }
 
     const makeNewRequestResponse = (event) => {
-        debugger
         event.preventDefault()
         
 
@@ -42,14 +42,17 @@ export const RequestResponseForm = () => {
             })
     }
     return (
-        <form>
-            <fieldset>
-                <div className="form-group">
+        <main className='requestResponse__page'>
+
+        <form className='requestResponse__form'>
+
+            <fieldset className="responseBody__field">
+                <div className="responseBody__container">
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
-                        placeholder="Hey neighbor! I can help out!"
+                        className="responseBody"
+                        placeholder="Hey neighbor!"
                         value={requestResponse.responseBody}
                         onChange={
                             (evt) => {
@@ -60,13 +63,15 @@ export const RequestResponseForm = () => {
                             }
                         } />
                 </div>
+
             </fieldset>
 
             <button
                 onClick={(clickEvent) => makeNewRequestResponse(clickEvent)}
-                className="btn btn-primary">
+                className="responseButton">
                 SEND!
             </button>
         </form>
+        </main>
     )
 }

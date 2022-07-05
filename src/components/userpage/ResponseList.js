@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./ResponseList.css"
 
 export const ResponseList = () => {
     const [requestResponses, setRequestResponses] = useState([])
@@ -23,11 +24,11 @@ export const ResponseList = () => {
         for (const user of users)
             if (CommunityLinkUserObject.id === user.id)
                 return <div>
-                    Welcome, {user.fullName}!!!
+                    {user.fullName}!!!
                 </div>
     }
 
-    
+
     const fetchRequestResponses = () => {
         fetch(`http://localhost:8088/requestResponses?_expand=requestPost&_expand=user`)
             .then(response => response.json())
@@ -35,7 +36,7 @@ export const ResponseList = () => {
                 setRequestResponses(requestResponseArray)
             })
     }
-   
+
     useEffect(fetchRequestResponses, [])
 
 
@@ -62,43 +63,53 @@ export const ResponseList = () => {
     }
 
     return (<>
+        <main className="userPage_container">
+
+            <div className="welcome">
+                <p className="para_welcome">Welcome,</p>
+                <p className="para_user">{WelcomeMessage()}</p>
+            </div>
             <article className="userPage">
-                <h1>{WelcomeMessage()}</h1>
-                
-                <h3>HELP REQUEST MESSAGES</h3>
-                {
-                    requestResponses.map(
-                        (requestResponse) => {
-                            if (requestResponse.requestPost.userId === CommunityLinkUserObject.id){
-                            return <section className='requestResponse' key={requestResponse.id}>
-                                <header className='requestResponse_poster'>{requestResponse?.user?.fullName}</header>
-                                <div>RESPONDING TO {requestResponse.requestPost.requestTopic.toUpperCase()} REQUEST</div>
-                                <div>{requestResponse.responseBody}</div>
-                                <button onClick={() => navigate("/requestResponse/create")}>RESPOND</button>
-                                <button onClick={() => deleteRqstResponseButtn(requestResponse)} className="item__delete">DELETE</button>
-                            </section>} 
-                        } 
-                    )
-                }
-                <h3>FREE STORE MESSAGES</h3>
                 {
                     itemResponses.map(
                         (itemResponse) => {
-                            if (itemResponse.itemPost.userId === CommunityLinkUserObject.id)
-                            {return <>
-                                <section className='itemResponse' key={itemResponse.id}>
-                                    <header className='itemResponse_poster'>{itemResponse?.user?.fullName}</header>
-                                    <div>RESPONDING TO POST FOR {itemResponse.itemPost.itemName.toUpperCase()}</div>
-                                    <div>{itemResponse.responseBody}</div>
-                                    <button onClick={() => navigate("/itemResponse/create")}>RESPOND</button>
-                                    <button onClick={() => deleteItemButtn(itemResponse)} className="item__delete">DELETE</button>
-                                </section>
-                            </>}
+                            if (itemResponse.itemPost.userId === CommunityLinkUserObject.id) {
+                                return <>
+                                    <section className='itemResponse' key={itemResponse.id}>
+                                        <div>
+                                            <span><button className="itemResponse_delete" onClick={() => deleteItemButtn(itemResponse)}>x</button></span>
+                                            <header className='itemResponse_poster'>{itemResponse?.user?.fullName}</header>
+                                        </div>
+
+                                        <div className='itemResponse_tag'>RESPONDING TO POST ABOUT {itemResponse.itemPost.itemName.toUpperCase()}</div>
+                                        <div className='itemResponse_body'>{itemResponse.responseBody}</div>
+                                        <button className="itemResponse_respond" onClick={() => navigate(`/itemResponse/create?itemPostId=${itemResponse.itemPost.id}`)}>RESPOND</button>
+                                    </section>
+                                </>
+                            }
                         }
                     )
                 }
-                
+                {
+                    requestResponses.map(
+                        (requestResponse) => {
+                            if (requestResponse.requestPost.userId === CommunityLinkUserObject.id) {
+                                return <section className='requestResponse' key={requestResponse.id}>
+                                    <div>
+                                        <span><button className="requestResponse__delete" onClick={() => deleteRqstResponseButtn(requestResponse)}>x</button></span>
+                                        <header className='requestResponse__poster'>{requestResponse?.user?.fullName}</header>
+                                    </div>
+                                    <div className='requestResponse__tag'>RESPONDING TO {requestResponse.requestPost.requestTopic.toUpperCase()} REQUEST</div>
+                                    <div className='requestResponse__body'>{requestResponse.responseBody}</div>
+                                    <button className='requestResponse__respond' onClick={() => navigate("/requestResponse/create")}>RESPOND</button>
+                                </section>
+                            }
+                        }
+                    )
+                }
+
             </article>
+        </main>
     </>
 
     )

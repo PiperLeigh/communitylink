@@ -1,0 +1,105 @@
+::placeholder {
+    color:#4F95EB
+}
+
+.register__logo {
+    font-family: 'rosebud';
+    padding: 25px 18px;
+    color: #4F95EB;
+    font-size: 30px;
+    background-color: #F3F2E8;
+}
+
+.register__container {
+    background: url("/public/images/Register.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 115%;
+}
+
+.register__form {
+    margin-left: 500px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerButtons {
+display: flex;
+justify-content:space-around ;
+width: 500px;
+}
+
+.register__name {
+    border: 1px solid #D0CC5D;
+    border-radius: 25px;
+    width: 500px;
+    height: 28px;
+    font-family: 'source code';
+    color: #4F95EB;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: #F3F2E8;
+}
+
+
+.register__email {
+    border: 1px solid #D0CC5D;
+    border-radius: 25px;
+    width: 500px;
+    height: 28px;
+    font-family: 'source code';
+    color: #4F95EB;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: #F3F2E8;
+}
+
+.register__zip {
+    border: 1px solid #D0CC5D;
+    border-radius: 25px;
+    width: 500px;
+    height: 28px;
+    font-family: 'source code';
+    color: #4F95EB;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: #F3F2E8;
+}
+
+.register__loginContainer {
+margin-top: 20px;
+}
+
+.field {
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.register__submit {
+    font-family: 'source code';
+    font-size: 20px;
+    color: #4F95EB;
+    border-radius: 5px;
+    border: 1px solid #D0CC5D;
+    background-color: #F3F2E8;
+    padding: 14px 6px;
+}
+
+.register__login {
+    font-family: 'source code';
+    color: #4F95EB;
+    border: 1px solid #D0CC5D;
+    border-radius: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #F3F2E8;
+    padding: 14px 6px;
+}

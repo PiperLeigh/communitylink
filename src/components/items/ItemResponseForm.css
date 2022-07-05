@@ -1,0 +1,40 @@
+.itemResponseForm__container {
+    background: url("/public/images/ItemResponse.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 120%;
+}
+
+.itemResponseForm {
+margin-left: 600px;
+}
+
+.itemResponseBody {
+    border: 2px solid #4B93EE;
+    border-radius: 25px;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    background-color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #D0CC5D;
+}
+
+.itemResponseButton {
+    background-color: #4B93EE;
+    color: #F2F1E7;
+    font-family: 'source code';
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #4B93EE;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 20px;
+    width: 350px;
+    margin-left: 133px;
+    margin-top: 40px;
+}

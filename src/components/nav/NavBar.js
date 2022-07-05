@@ -4,11 +4,10 @@ import "./NavBar.css"
 export const NavBar = () => {
     const navigate = useNavigate()
 
-    return (
-        <ul className="navbar_item active">
-                        <li>
-            <Link className="navbar__link" to="/">COMMUNITYLINK</Link>
-            </li>
+    return ( 
+        <div className="navbar_itemsContainer">
+        <div><Link className="navbar__logo" to="/" >COMMUNITYLINK</Link></div>
+        <ul className="navbar_items">
             <li>
             <Link className="navbar__link" to="/be-a-neighbor">be a neighbor</Link>
             </li>
@@ -26,5 +25,6 @@ export const NavBar = () => {
                     : ""
             }
         </ul>
+        </div>
     )
 }
