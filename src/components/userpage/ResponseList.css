@@ -61,7 +61,6 @@
     padding: 10px;
     border: 1px solid #D0CC5D;
     border-radius: 5px 5px 0px 0px;
-    background-color: #F3F2E8;
 }
 
 .itemResponse_tag {
@@ -78,7 +77,6 @@
     padding: 15px;
     border-left: 1px solid #4F95EB;
     border-right: 1px solid #4F95EB;
-    background-color: #F3F2E8;
 }
 .itemResponse_delete {
     background-color: #4F95EB;
@@ -124,7 +122,7 @@ letter-spacing: 3px;
     padding: 15px;
     border-left: 1px solid #D0CC5D;
     border-right: 1px solid #D0CC5D;
-    background-color: #F3F2E8;
+    font-weight:bold
 }
 
 .requestResponse__respond {

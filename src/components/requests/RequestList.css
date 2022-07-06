@@ -21,6 +21,7 @@
     color: #D0CC5D;
     display: flex;
     flex-direction: column;
+    background-color: F3F2E8;
 }
 
 .requests {
@@ -36,7 +37,7 @@
 .request__posterTag {
     font-family: 'source code';
     background-color: #D0CC5D;
-    color: #F3F2E8;
+    color: #F7F6F0;
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 10px;
     padding: 12px 0 9px 9px;
@@ -59,11 +60,15 @@
     border-bottom: 1px solid #D0CC5D;
     padding: 3px 0 9px 9px;
     color: #D0CC5D;
+    background-color: #F3F2E8;
+    font-weight: bold;
 }
 
 .request__description {
     margin-bottom: 8px;
     padding: 3px 9px 4px 9px;
+    background-color: #F3F2E8;
+    font-weight: bold;
 }
 
 .request__urgent {
@@ -88,7 +93,7 @@
 
 .requestRespond__button {
     font-family: 'source code';
-    color: #F3F2E8;
+    color: #F7F6F0;
     font-size: 20px;
     background-color: white;
     border: none;

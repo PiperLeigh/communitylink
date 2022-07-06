@@ -29,9 +29,9 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 800px;
     background-color: #F3F2E8;
-    margin-left: 700px;
+    margin-left: 800px;
 }
 
 .posterDelete__container {
@@ -72,7 +72,7 @@
 .item__name {
     background-color: #4F95EB;
     width: 50%;
-    color:#F3F2E8;
+    color:#F7F6F0;
     padding: 5px;
 }
 
@@ -93,7 +93,7 @@
 
 .itemRespond__Button {
     font-family: 'source code';
-    color: #F3F2E8;
+    color: #F7F6F0;
     font-size: 20px;
     background-color: #4F95EB;
     border: 2px solid #4F95EB;

@@ -73,7 +73,7 @@ export const ResponseList = () => {
                 {
                     itemResponses.map(
                         (itemResponse) => {
-                            if (itemResponse.itemPost.userId === CommunityLinkUserObject.id) {
+                            if (itemResponse.itemPost.userId === CommunityLinkUserObject.id && itemResponse.userId !== CommunityLinkUserObject.id) {
                                 return <>
                                     <section className='itemResponse' key={itemResponse.id}>
                                         <div>
@@ -83,7 +83,7 @@ export const ResponseList = () => {
 
                                         <div className='itemResponse_tag'>RESPONDING TO POST ABOUT {itemResponse.itemPost.itemName.toUpperCase()}</div>
                                         <div className='itemResponse_body'>{itemResponse.responseBody}</div>
-                                        <button className="itemResponse_respond" onClick={() => navigate(`/itemResponse/create?itemPostId=${itemResponse.itemPost.id}`)}>RESPOND</button>
+                                        <button className="itemResponse_respond" onClick={() => navigate(`/itemResponse/create?itemPostId=${itemResponse.itemPost.id}&previousPage=/`)}>RESPOND</button>
                                     </section>
                                 </>
                             }
@@ -93,7 +93,7 @@ export const ResponseList = () => {
                 {
                     requestResponses.map(
                         (requestResponse) => {
-                            if (requestResponse.requestPost.userId === CommunityLinkUserObject.id) {
+                            if (requestResponse.requestPost.userId === CommunityLinkUserObject.id && requestResponse.userId !== CommunityLinkUserObject.id) {
                                 return <section className='requestResponse' key={requestResponse.id}>
                                     <div>
                                         <span><button className="requestResponse__delete" onClick={() => deleteRqstResponseButtn(requestResponse)}>x</button></span>
@@ -101,7 +101,7 @@ export const ResponseList = () => {
                                     </div>
                                     <div className='requestResponse__tag'>RESPONDING TO {requestResponse.requestPost.requestTopic.toUpperCase()} REQUEST</div>
                                     <div className='requestResponse__body'>{requestResponse.responseBody}</div>
-                                    <button className='requestResponse__respond' onClick={() => navigate("/requestResponse/create")}>RESPOND</button>
+                                    <button className='requestResponse__respond' onClick={() => navigate(`/requestResponse/create?requestPostId=${requestResponse.requestPost.id}&previousPage=/`)}>RESPOND</button>
                                 </section>
                             }
                         }

@@ -7,7 +7,7 @@
 }
 
 .itemResponseForm {
-margin-left: 600px;
+margin-left: 650px;
 }
 
 .itemResponseBody {
@@ -15,13 +15,13 @@ margin-left: 600px;
     border-radius: 25px;
     width: 600px;
     height: 400px;
-    text-align: center;
     background-color: #F2F1E7;
     font-family: 'source code';
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
     color: #D0CC5D;
+    padding: 30px;
 }
 
 .itemResponseButton {
@@ -35,6 +35,11 @@ margin-left: 600px;
     margin-right: 20px;
     font-size: 20px;
     width: 350px;
-    margin-left: 133px;
+    margin-left: 165px;
     margin-top: 40px;
 }
+
+.itemResponseBody:focus {
+    box-shadow: none;
+    outline: none;
+  }

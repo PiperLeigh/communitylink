@@ -37,7 +37,8 @@ export const ItemResponseForm = () => {
         })
             .then((response) => response.json())
             .then(() => {
-                navigate('/free-store')
+                const previousPage = query.get('previousPage')
+                navigate(previousPage)
             })
     }
     return (
@@ -45,7 +46,7 @@ export const ItemResponseForm = () => {
         <form className='itemResponseForm'>
             <fieldset>
                 <div>
-                    <input
+                    <textarea
                         required autoFocus
                         type="text"
                         className="itemResponseBody"

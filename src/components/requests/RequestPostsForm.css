@@ -3,11 +3,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 95%;
+    height: 100%;
 }
 
 .requestPost__form {
-    margin-left: 1000px;
+    margin-left: 1100px;
 }
 
 .requestHeadline {
@@ -16,12 +16,12 @@
     width: 600px;
     height: 28px;
     text-align: center;
-    background-color: #F2F1E7;
+    background-color: #F3F2E8;
     font-family: 'source code';
     font-weight: bold;
     font-size: 20px;
     margin: 5px;
-    margin-top: 100px;
+    margin-top: 120px;
     color: #D0CC5D;
 }
 
@@ -31,7 +31,7 @@
     width: 600px;
     height: 400px;
     text-align: center;
-    background-color: #F2F1E7;
+    background-color: #F3F2E8;
     font-family: 'source code';
     font-weight: bold;
     font-size: 20px;
@@ -69,3 +69,13 @@ margin-right: 20px;
 padding: 1px 6px;
 font-size: 20px;
 }
+
+.requestHeadline:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .requestDetails:focus {
+    box-shadow: none;
+    outline: none;
+  }

@@ -7,7 +7,7 @@
 }
 
 .requestResponse__form {
-    margin-left: 650px;
+    margin-left: 660px;
 }
 
 .responseBody {
@@ -15,14 +15,15 @@
     border-radius: 25px;
     width: 600px;
     height: 400px;
-    text-align: center;
     background-color: #F2F1E7;
     font-family: 'source code';
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
     color: #D0CC5D;
+    padding: 30px;
 }
+
 
 .responseButton {
     background-color: #D0CC5D;
@@ -35,6 +36,11 @@
     margin-right: 20px;
     font-size: 20px;
     width: 350px;
-    margin-left: 133px;
+    margin-left: 165px;
     margin-top: 40px;
 }
+
+.responseBody:focus {
+    box-shadow: none;
+    outline: none;
+  }
